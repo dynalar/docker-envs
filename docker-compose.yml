@@ -2,9 +2,10 @@ version: '3.3'
 
 services:
 
-# mysql database, not much extra setup needed...
+# mysql database, not much extra setup needed.
   db:
     image: mysql:8.0
+    container_name: mysql
     restart: always
     environment:
       MYSQL_DATABASE: 'db'
@@ -21,7 +22,27 @@ services:
       - '3306'
       # Where our data will be persisted
     volumes:
-      - my-db:/var/lib/mysql
+      - local-db:/var/lib/mysql
+  
+  # nginx for our server. yeet
+  web:
+    image: nginx:latest
+    container_name: nginx
+    volumes:
+      - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
+      - ./projects/code:/code
+    ports:
+      - "8080:80"
+    environment:
+      - NGINX_HOST=foobar.com
+      - NGINX_PORT=80
+  
+  # php fpm container for our interpreter
+  php:
+    image: php:7-fpm
+    container_name: php7
+    volumes:
+      - ./projects/code:/code
 
 
 # Names our volume
