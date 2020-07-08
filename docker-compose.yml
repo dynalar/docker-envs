@@ -21,18 +21,23 @@ services:
       # Opens port 3306 on the container
       - '3306'
       # Where our data will be persisted
+    networks:
+      - local-dev-network
     volumes:
       - local-db:/var/lib/mysql
   
   # nginx for our server. yeet
   web:
     image: nginx:latest
+    build: ./nginx/
     container_name: nginx
     volumes:
       - ./nginx/site.conf:/etc/nginx/conf.d/site.conf
       - ./projects/code:/code
     ports:
       - "8080:80"
+    networks:
+      - local-dev-network
     environment:
       - NGINX_HOST=foobar.com
       - NGINX_PORT=80
@@ -41,10 +46,16 @@ services:
   php:
     image: php:7-fpm
     container_name: php7
+    networks:
+      - local-dev-network
     volumes:
       - ./projects/code:/code
 
+# adding a network to keep everything encapsulated
+networks: 
+  local-dev-network:
+    driver: bridge
 
-# Names our volume
+# Names our volume for mysql db
 volumes:
   local-db:
