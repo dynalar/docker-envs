@@ -25,8 +25,20 @@ services:
       - local-dev-network
     volumes:
       - local-db:/var/lib/mysql
+
+  # mongo db container. nothing special here really
+  mongo:
+    image: mongo:latest
+    container_name: mongodb
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    ports:
+      - 27017:27017
+    volumes:
+      - mongodb_data_container:/data/db
   
-  # nginx for our server. yeet
+  # nginx for our server. add as many conf files you need for your projects.
   web:
     image: nginx:latest
     build: ./nginx/
@@ -58,3 +70,4 @@ networks:
 # Names our volume for mysql db
 volumes:
   local-db:
+  mongodb_data_container:
