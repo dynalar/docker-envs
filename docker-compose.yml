@@ -45,6 +45,7 @@ services:
   # php fpm container for our interpreter
   php:
     image: php:7-fpm
+    build: ./php-fpm/
     container_name: php7
     networks:
       - local-dev-network
