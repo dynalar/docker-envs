@@ -36,7 +36,7 @@ services:
     ports:
       - 27017:27017
     volumes:
-      - mongodb_data_container:/data/db
+      - mongodb-data-container:/data/db
   
   # nginx for our server. add as many conf files you need for your projects.
   web:
@@ -70,4 +70,4 @@ networks:
 # Names our volume for mysql db
 volumes:
   local-db:
-  mongodb_data_container:
+  mongodb-data-container:
