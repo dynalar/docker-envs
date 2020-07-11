@@ -44,8 +44,7 @@ services:
     build: ./nginx/
     container_name: nginx
     volumes:
-      - ./nginx/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      - ./nginx/conf.d/laravel.conf:/etc/nginx/conf.d/laravel.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
       - ./projects/code:/code
     ports:
       - "80:80"
