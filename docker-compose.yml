@@ -3,7 +3,7 @@ version: '3.3'
 services:
 
 # mysql database, not much extra setup needed.
-  db:
+  mysqldb:
     image: mysql:8.0
     container_name: mysql
     restart: always
@@ -27,7 +27,7 @@ services:
       - local-db:/var/lib/mysql
 
   # mongo db container. nothing special here really
-  mongo:
+  mongodb:
     image: mongo:latest
     container_name: mongodb
     environment:
@@ -39,7 +39,7 @@ services:
       - mongodb-data-container:/data/db
   
   # nginx for our server. add as many conf files you need for your projects.
-  web:
+  nginx:
     image: nginx:latest
     build: ./nginx/
     container_name: nginx
@@ -52,7 +52,7 @@ services:
       - local-dev-network
   
   # php fpm container for our interpreter
-  php:
+  phpfpm:
     image: php:7-fpm
     build: ./php-fpm/
     container_name: php7
