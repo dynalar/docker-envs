@@ -45,7 +45,7 @@ services:
     container_name: nginx
     volumes:
       - ./nginx/conf.d:/etc/nginx/conf.d
-      - ./projects/code:/code
+      - ./code:/code
     ports:
       - "80:80"
     networks:
@@ -59,7 +59,7 @@ services:
     networks:
       - local-dev-network
     volumes:
-      - ./projects/code:/code
+      - ./code:/code
 
 # adding a network to keep everything encapsulated
 networks: 
