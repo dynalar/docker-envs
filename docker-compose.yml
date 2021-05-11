@@ -1,4 +1,4 @@
-version: '3.3'
+version: '3.8'
 
 services:
 
@@ -56,10 +56,13 @@ services:
     image: php:7-fpm
     build: ./php-fpm/
     container_name: php7
+    environment:
+      - SSH_AUTH_SOCK=/ssh-agent
     networks:
       - local-dev-network
     volumes:
       - ./code:/code
+      - ${SSH_AUTH_SOCK}:/ssh-agent
 
 # adding a network to keep everything encapsulated
 networks: 
