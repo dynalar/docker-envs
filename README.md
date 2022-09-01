@@ -6,9 +6,10 @@ of containerizing every app that I work on, but it gives me all of the necessary
 There is a directory called projects/code, feel free to put your code in there so it syncs up with the containers.
 
 ## Current Services
-  - nginx
-  - php-fpm/php 7.4
-  - MySQL
+  - nginx latest
+  - php-fpm/php 8.1
+  - MySQL latest
+  - Redis latest
 
 ### Usage
 
