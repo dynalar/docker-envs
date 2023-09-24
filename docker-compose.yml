@@ -71,13 +71,10 @@ services:
     platform: linux/x86_64
     build: ./php-fpm/
     container_name: php8.1_local
-    environment:
-      - SSH_AUTH_SOCK=/ssh-agent
     networks:
       - local-dev-network
     volumes:
       - ./code:/code
-      - ${SSH_AUTH_SOCK}:/ssh-agent
 
 # adding a network to keep everything encapsulated
 networks: 
