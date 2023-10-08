@@ -15,7 +15,7 @@ There is a directory called projects/code, feel free to put your code in there s
 
 1. Make sure Docker/Docker-CE is installed.
 
-2. Next, set up any necessary conf.d files for your project.
+2. Next, set up any necessary conf.d files for your project in `nginx/conf.d/`. These will be used when the container is being built.
 You may choose to use the templates that are in there for laravel projects, or use something else.
 
 3. Once you have your hostnames, copy and paste the `hosts.example.txt` file to a normal `hosts.txt` file, and put them in there line by line.
