@@ -35,6 +35,8 @@ services:
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: rootpassword
+    networks:
+      - local-dev-network
     ports:
       - 27017:27017
     volumes:
@@ -48,6 +50,8 @@ services:
     restart: always
     ports:
       - 6379:6379
+    networks:
+      - local-dev-network
     volumes:
       - redis-data-container:/data
 
@@ -79,6 +83,7 @@ services:
 # adding a network to keep everything encapsulated
 networks: 
   local-dev-network:
+    enable_ipv6: false
     driver: bridge
 
 # Names our volume for mysql db

@@ -13,8 +13,11 @@ There is a directory called projects/code, feel free to put your code in there s
 
 ### Usage
 
-Make sure Docker/Docker-CE is installed. It's as easy as going into the Docker directory and doing
+1. Make sure Docker/Docker-CE is installed.
 
-```sh
-$ docker-compose up --build
-```
+2. Next, set up any necessary conf.d files for your project.
+You may choose to use the templates that are in there for laravel projects, or use something else.
+
+3. Once you have your hostnames, copy and paste the `hosts.example.txt` file to a normal `hosts.txt` file, and put them in there line by line.
+
+4. Once everything is set up, run `make build` to build your docker compose environment. Everything will be set up for you.

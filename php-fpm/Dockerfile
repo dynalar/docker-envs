@@ -6,6 +6,9 @@ RUN apt-get install -y \
         libzip-dev \
         zip \
         git \
+        net-tools \
+        inetutils-ping \
+        vim \
   && docker-php-ext-install zip \
         pdo \
         pdo_mysql
