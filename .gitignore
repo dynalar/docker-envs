@@ -2,3 +2,4 @@
 /nginx/conf.d/*
 .vscode/
 .DS_Store
+hosts.txt
